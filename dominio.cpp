@@ -2,9 +2,6 @@
 
 using namespace std;
 
-void SENHA::SetSenha(string senha){
-    if (verifica(senha)) this -> senha = senha;
-}
 
 bool SENHA::verifica(string senha){
     if (senha.length() != 5) return false;
@@ -24,9 +21,6 @@ bool SENHA::verifica(string senha){
     return false;
 }
 
-inline string SENHA::GetSenha() {
-    return senha;
-}
 
 //---------------------------------------------------------------------------//
 
@@ -39,28 +33,12 @@ bool CODIGO::verifica(string codigo){
     return true;
 }
 
-void CODIGO::SetCodigo(string codigo){
-    if(verifica(codigo)) this -> codigo = codigo;
-}
-
-inline string CODIGO::GetCodigo(){
-    return codigo;
-}
-
 //---------------------------------------------------------------------------//
 
 bool COLUNA::verifica(string coluna){
     if (coluna == "SOLICITADO" || coluna == "EM EXECUÇÃO" ||coluna == "CONCLUIDO")
         return true;
     return false;
-}
-
-void COLUNA::SetColuna(string coluna){
-    if (verifica(coluna)) this -> coluna = coluna;
-}
-
-inline string COLUNA::GetColuna(){
-    return coluna;
 }
 
 //---------------------------------------------------------------------------//
@@ -145,13 +123,6 @@ string EMAIL::SeparaEmail(string parte, string email){
     }
 }
 
-void EMAIL::SetEmail(string email){
-    if(verifica(email)) this -> email = email;
-}
-
-inline string EMAIL::GetEmail(){
-    return email;
-}
 
 //---------------------------------------------------------------------------//
 
@@ -202,7 +173,7 @@ bool TEXTO::verifica(string texto) {
     return false; // Primeira letra miniscula
 }
 
-void TEXTO::SetTexto(string texto){
+inline void TEXTO::SetTexto(string texto){
     if (verifica(texto)) this -> texto = texto;
 }
 
@@ -217,12 +188,4 @@ bool LIMITE::verifica(int limite){
         return true;
     
     return false;
-}
-
-int LIMITE::SetLimite(int limite){
-    if (verifica(limite)) this -> limite = limite;
-}
-
-inline int LIMITE::GetLimite(){
-    return limite;
 }
