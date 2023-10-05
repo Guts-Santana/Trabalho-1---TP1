@@ -5,19 +5,31 @@ using namespace std;
 
 void SENHA::verifica(string senha){
     if (senha.length() != 5) throw invalid_argument("Argumento invalido");
-    int maiusculo, minusculo, digito, sinal = 0;
+    int maiusculo, minusculo, digito, ponto, repetido = 0;
     string pontuacao = ".,!?;";
     for (char i : senha){
         if (int(i) >= (int)'A' && int(i) <= (int) 'Z')
-        maiusculo = 1;
+        	maiusculo = 1;
         if (int(i) >= (int)'a' && int(i) <= (int) 'z')
-        minusculo = 1;
+        	minusculo = 1;
         if (int(i) >= (int)'0' && int(i) <= (int) '9')
-        digito = 1;
-        if (find(pontuacao.begin(), pontuacao.end(), (char)senha[i]) != pontuacao.end())
-        sinal = 1;
+        	digito = 1;
+        if (find(pontuacao.begin(), pontuacao.end(), i) != pontuacao.end())
+        	ponto = 1;
     }
-    if (!maiusculo & minusculo & digito & sinal) ;
+    
+    for (int i = 0; i < 4; i++){
+        for (int j = i+1; j < 5; j++){
+            if (senha[i] == senha[j]){
+                repetido = 1;
+				break;
+            }
+        }
+		if (repetido == 1)
+			break;
+    }
+
+    if (!(maiusculo & minusculo & digito & ponto & !repetido));
     throw invalid_argument("Argumento invalido");
 }
 
