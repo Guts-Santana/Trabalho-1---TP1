@@ -6,7 +6,7 @@ using namespace std;
 class CODIGO{
     private:
         string codigo;
-        bool verifica(string codigo);
+        void verifica(string codigo);
 
     public:
         string GetCodigo();
@@ -18,7 +18,7 @@ class CODIGO{
 class TEXTO{
     private:
         string texto;
-        bool verifica(string texto);
+        void verifica(string texto);
     
     public:
         string GetTexto();
@@ -30,7 +30,7 @@ class TEXTO{
 class LIMITE{
     private:
         int limite;
-        bool verifica(int limite);
+        void verifica(int limite);
 
     public:
         int GetLimite();
@@ -42,7 +42,7 @@ class LIMITE{
 class COLUNA{
     private:
         string coluna;
-        bool verifica(string coluna);
+        void verifica(string coluna);
         
     public:
         string GetColuna();
@@ -54,7 +54,7 @@ class COLUNA{
 class SENHA{
     private:
         string senha;
-        bool verifica(string senha);
+        void verifica(string senha);
         
     public:
         string GetSenha();
@@ -66,7 +66,7 @@ class SENHA{
 class EMAIL{
     private:
         string email;
-        bool verifica(string email);
+        void verifica(string email);
         string SeparaEmail(string parte, string email);
     public:
         void SetEmail(string email);
@@ -76,7 +76,8 @@ class EMAIL{
 //---------------------------------------------------------------------------//
 
 inline void EMAIL::SetEmail(string email){
-    if(verifica(email)) this -> email = email;
+    verifica(email);
+    this -> email = email;
 }
 
 inline string EMAIL::GetEmail(){
@@ -86,7 +87,8 @@ inline string EMAIL::GetEmail(){
 //---------------------------------------------------------------------------//
 
 inline void COLUNA::SetColuna(string coluna){
-    if (verifica(coluna)) this -> coluna = coluna;
+    verifica(coluna);
+    this -> coluna = coluna;
 }
 
 inline string COLUNA::GetColuna(){
@@ -96,7 +98,8 @@ inline string COLUNA::GetColuna(){
 //---------------------------------------------------------------------------//
 
 inline void CODIGO::SetCodigo(string codigo){
-    if(verifica(codigo)) this -> codigo = codigo;
+    verifica(codigo);
+    this -> codigo = codigo;
 }
 
 inline string CODIGO::GetCodigo(){
@@ -106,7 +109,8 @@ inline string CODIGO::GetCodigo(){
 //---------------------------------------------------------------------------//
 
 inline void SENHA::SetSenha(string senha){
-    if (verifica(senha)) this -> senha = senha;
+    verifica(senha);
+    this -> senha = senha;
 }
 
 inline string SENHA::GetSenha() {
@@ -116,7 +120,8 @@ inline string SENHA::GetSenha() {
 //---------------------------------------------------------------------------//
 
 inline void TEXTO::SetTexto(string texto){
-    if (verifica(texto)) this -> texto = texto;
+    verifica(texto);
+    this -> texto = texto;
 }
 
 inline string TEXTO::GetTexto(){
@@ -126,7 +131,8 @@ inline string TEXTO::GetTexto(){
 //---------------------------------------------------------------------------//
 
 inline int LIMITE::SetLimite(int limite){
-    if (verifica(limite)) this -> limite = limite;
+    verifica(limite);
+    this -> limite = limite;
 }
 
 inline int LIMITE::GetLimite(){

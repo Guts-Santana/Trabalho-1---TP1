@@ -3,8 +3,8 @@
 using namespace std;
 
 
-bool SENHA::verifica(string senha){
-    if (senha.length() != 5) return false;
+void SENHA::verifica(string senha){
+    if (senha.length() != 5) throw invalid_argument("Argumento invalido");
     int maiusculo, minusculo, digito, sinal = 0;
     string pontuacao = ".,!?;";
     for (char i : senha){
@@ -17,45 +17,45 @@ bool SENHA::verifica(string senha){
         if (find(pontuacao.begin(), pontuacao.end(), (char)senha[i]) != pontuacao.end())
         sinal = 1;
     }
-    if (maiusculo & minusculo & digito & sinal) return true;
-    return false;
+    if (!maiusculo & minusculo & digito & sinal) ;
+    throw invalid_argument("Argumento invalido");
 }
 
 
 //---------------------------------------------------------------------------//
 
-bool CODIGO::verifica(string codigo){
+void CODIGO::verifica(string codigo){
 
-    if ((int)codigo[0] <= (int) 'A' && (int)codigo[0] >= 'Z') return false;
-    if ((int)codigo[1] <= (int) 'A' && (int)codigo[1] >= 'Z') return false;
-    if ((int)codigo[2] <= (int) '0' && (int)codigo[2] >= '9') return false;
-    if ((int)codigo[3] <= (int) '0' && (int)codigo[3] >= '9') return false;
-    return true;
+    if ((int)codigo[0] <= (int) 'A' && (int)codigo[0] >= 'Z') throw invalid_argument("Argumento invalido");
+    if ((int)codigo[1] <= (int) 'A' && (int)codigo[1] >= 'Z') throw invalid_argument("Argumento invalido");
+    if ((int)codigo[2] <= (int) '0' && (int)codigo[2] >= '9') throw invalid_argument("Argumento invalido");
+    if ((int)codigo[3] <= (int) '0' && (int)codigo[3] >= '9') throw invalid_argument("Argumento invalido");
+    ;
 }
 
 //---------------------------------------------------------------------------//
 
-bool COLUNA::verifica(string coluna){
+void COLUNA::verifica(string coluna){
     if (coluna == "SOLICITADO" || coluna == "EM EXECUÇÃO" ||coluna == "CONCLUIDO")
-        return true;
-    return false;
+        ;
+    throw invalid_argument("Argumento invalido");
 }
 
 //---------------------------------------------------------------------------//
 
 
-bool EMAIL::verifica(string email){
+void EMAIL::verifica(string email){
     //verificar o nome
     string nome = SeparaEmail("nome", email);
     if(nome.size() < 11 and nome.size() > 2){
         for(char i: nome){
             if(!isalnum(i) or i == '.'){
                 cout <<"tem caracter especial no nome do email";
-                return false;
+                throw invalid_argument("Argumento invalido");
             }
             if(nome.back() == '.'){
                 cout << "possui um ponto antecedendo o @";
-                return false;
+                throw invalid_argument("Argumento invalido");
             }
             for(int j = 0;char i : nome){
                 if(i == '.'){
@@ -66,7 +66,7 @@ bool EMAIL::verifica(string email){
                 }
                 if(j == 2){
                     cout << "possui mais de um ponto em sequencia";
-                    return false;
+                    throw invalid_argument("Argumento invalido");
                 }
             }
         }
@@ -78,11 +78,11 @@ bool EMAIL::verifica(string email){
         for(char i: dominio){
             if(!isalnum(i) and i != '.'){
                 cout <<"tem caracter especial no dominio do email";
-                return false;
+                throw invalid_argument("Argumento invalido");
             }
             if(dominio.back() == '.'){
                 cout << "possui um ponto antecedendo o @";
-                return false;
+                throw invalid_argument("Argumento invalido");
             }
             for(int j = 0;char i : dominio){
                 if(i == '.'){
@@ -93,13 +93,11 @@ bool EMAIL::verifica(string email){
                 }
                 if(j == 2){
                     cout << "possui mais de um ponto em sequencia";
-                    return false;
+                    throw invalid_argument("Argumento invalido");
                 }
             }
         }
     }
-    cout << "seu email e valido";
-    return true;
 }
 
 string EMAIL::SeparaEmail(string parte, string email){
@@ -126,7 +124,7 @@ string EMAIL::SeparaEmail(string parte, string email){
 
 //---------------------------------------------------------------------------//
 
-bool TEXTO::verifica(string texto) {
+void TEXTO::verifica(string texto) {
 
     string pontuacao = ".,;!?";
     int x = 0; // Contador de sequências de pontuação
@@ -144,7 +142,7 @@ bool TEXTO::verifica(string texto) {
                             {
                                 if (f != texto.length())
                                 {
-                                    if (!isupper(texto[f])) return false; // letra minuscula pos pontuacao
+                                    if (!isupper(texto[f])) throw invalid_argument("Argumento invalido"); // letra minuscula pos pontuacao
                                 }
                                 
                             }
@@ -156,25 +154,26 @@ bool TEXTO::verifica(string texto) {
                             x = 0;
                         }
                         if (x > 1 || y > 1) {
-                            return false; // Sequência inválida
+                            throw invalid_argument("Argumento invalido"); // Sequência inválida
                         }
                     } else {
-                        return false; // Caractere com acentuação
+                        throw invalid_argument("Argumento invalido"); // Caractere com acentuação
                     }
                 } else {
-                    return false; // Caractere inválido
+                    throw invalid_argument("Argumento invalido"); // Caractere inválido
                 }
 
             }
-            return true; // Texto válido
+            ; // Texto válido
         }
-        return false; // Tamanho do texto fora dos limites
+        throw invalid_argument("Argumento invalido"); // Tamanho do texto fora dos limites
     }
-    return false; // Primeira letra miniscula
+    throw invalid_argument("Argumento invalido"); // Primeira letra miniscula
 }
 
 inline void TEXTO::SetTexto(string texto){
-    if (verifica(texto)) this -> texto = texto;
+    verifica(texto);
+    this -> texto = texto;
 }
 
 inline string TEXTO::GetTexto(){
@@ -183,9 +182,7 @@ inline string TEXTO::GetTexto(){
 
 //---------------------------------------------------------------------------//
 
-bool LIMITE::verifica(int limite){
+void LIMITE::verifica(int limite){
     if (limite == 5 || limite == 10 || limite == 15 || limite == 20)
-        return true;
-    
-    return false;
+        throw invalid_argument("Argumento invalido");
 }
