@@ -34,7 +34,7 @@ class LIMITE{
 
     public:
         int GetLimite();
-        int SetLimite(int limite);
+        void SetLimite(int limite);
 };
 
 //---------------------------------------------------------------------------//
@@ -130,7 +130,7 @@ inline string TEXTO::GetTexto(){
 
 //---------------------------------------------------------------------------//
 
-inline int LIMITE::SetLimite(int limite){
+inline void LIMITE::SetLimite(int limite){
     verifica(limite);
     this -> limite = limite;
 }
