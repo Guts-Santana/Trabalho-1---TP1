@@ -62,11 +62,9 @@ void EMAIL::verifica(string email){
     if(nome.size() < 11 and nome.size() > 2){
         for(char i: nome){
             if(!isalnum(i) or i == '.'){
-                cout <<"tem caracter especial no nome do email";
                 throw invalid_argument("Argumento invalido");
             }
             if(nome.back() == '.'){
-                cout << "possui um ponto antecedendo o @";
                 throw invalid_argument("Argumento invalido");
             }
             for(int j = 0;char i : nome){
@@ -77,7 +75,6 @@ void EMAIL::verifica(string email){
                     j = 0;
                 }
                 if(j == 2){
-                    cout << "possui mais de um ponto em sequencia";
                     throw invalid_argument("Argumento invalido");
                 }
             }
@@ -85,15 +82,12 @@ void EMAIL::verifica(string email){
     }
     //verificar o dominio
     string dominio = SeparaEmail("dominio", email);
-    cout << dominio;
     if(dominio.size() < 11 and dominio.size() > 2){
         for(char i: dominio){
             if(!isalnum(i) and i != '.'){
-                cout <<"tem caracter especial no dominio do email";
                 throw invalid_argument("Argumento invalido");
             }
             if(dominio.back() == '.'){
-                cout << "possui um ponto antecedendo o @";
                 throw invalid_argument("Argumento invalido");
             }
             for(int j = 0;char i : dominio){
@@ -104,7 +98,6 @@ void EMAIL::verifica(string email){
                     j = 0;
                 }
                 if(j == 2){
-                    cout << "possui mais de um ponto em sequencia";
                     throw invalid_argument("Argumento invalido");
                 }
             }
@@ -181,15 +174,6 @@ void TEXTO::verifica(string texto) {
         throw invalid_argument("Argumento invalido"); // Tamanho do texto fora dos limites
     }
     throw invalid_argument("Argumento invalido"); // Primeira letra miniscula
-}
-
-inline void TEXTO::SetTexto(string texto){
-    verifica(texto);
-    this -> texto = texto;
-}
-
-inline string TEXTO::GetTexto(){
-    return texto;
 }
 
 //---------------------------------------------------------------------------//

@@ -1,4 +1,6 @@
-#include <iostream>
+#ifndef ENTIDADE_H_INCLUDED
+#define ENTIDADE_H_INCLUDED
+
 #include "dominio.h"
 
 using namespace std;
@@ -13,9 +15,9 @@ class CONTA{
         void SetNome(const TEXTO&);
         void SetEmail(const EMAIL&);
         void SetSenha(const SENHA&);
-        TEXTO GetNome();
-        EMAIL GetEmail();
-        SENHA GetSenha();
+        TEXTO GetNome() const;
+        EMAIL GetEmail() const;
+        SENHA GetSenha() const;
 };
 
 class QUADRO{
@@ -30,10 +32,10 @@ class QUADRO{
         void SetNome(const TEXTO&);
         void SetDescricao(const TEXTO&);
         void SetLimite(const LIMITE&);
-        CODIGO GetCodigo();
-        TEXTO GetNome();
-        TEXTO GetDescricao();
-        LIMITE GetLimite();
+        CODIGO GetCodigo() const;
+        TEXTO GetNome() const;
+        TEXTO GetDescricao() const;
+        LIMITE GetLimite() const;
 };
 
 class CARTAO{
@@ -48,10 +50,10 @@ class CARTAO{
         void SetNome(const TEXTO&);
         void SetDescricao(const TEXTO&);
         void SetColuna(const COLUNA&);
-        CODIGO GetCodigo();
-        TEXTO GetNome();
-        TEXTO GetDescricao();
-        COLUNA GetColuna();
+        CODIGO GetCodigo() const; 
+        TEXTO GetNome() const;
+        TEXTO GetDescricao() const;
+        COLUNA GetColuna() const;
 };
 
 //---------------------------------------------------------------------------//
@@ -68,15 +70,15 @@ inline void CONTA::SetSenha(const SENHA& senha){
     this -> email = email;
 }
 
-inline TEXTO CONTA::GetNome(){
+inline TEXTO CONTA::GetNome() const{
     return nome;
 }
 
-inline EMAIL CONTA::GetEmail(){
+inline EMAIL CONTA::GetEmail() const{
     return email;
 }
 
-inline SENHA CONTA::GetSenha(){
+inline SENHA CONTA::GetSenha() const{
     return senha;
 }
 
@@ -98,19 +100,19 @@ inline void QUADRO::SetNome(const TEXTO& nome){
     this -> nome = nome;
 }
 
-inline CODIGO QUADRO::GetCodigo(){
+inline CODIGO QUADRO::GetCodigo() const{
     return codigo;
 }
 
-inline TEXTO QUADRO::GetDescricao(){
+inline TEXTO QUADRO::GetDescricao() const{
     return descricao;
 }
 
-inline TEXTO QUADRO::GetNome(){
+inline TEXTO QUADRO::GetNome() const{
     return nome;
 }
 
-inline LIMITE QUADRO::GetLimite(){
+inline LIMITE QUADRO::GetLimite() const{
     return limite;
 }
 
@@ -132,18 +134,20 @@ inline void CARTAO::SetNome(const TEXTO& nome){
     this -> nome = nome;
 }
 
-inline CODIGO CARTAO::GetCodigo(){
+inline CODIGO CARTAO::GetCodigo() const{
     return codigo;
 }
 
-inline TEXTO CARTAO::GetDescricao(){
+inline TEXTO CARTAO::GetDescricao() const{
     return descricao;
 }
 
-inline TEXTO CARTAO::GetNome(){
+inline TEXTO CARTAO::GetNome() const{
     return nome;
 }
 
-inline COLUNA CARTAO::GetColuna(){
+inline COLUNA CARTAO::GetColuna() const{
     return coluna;
 }
+
+#endif

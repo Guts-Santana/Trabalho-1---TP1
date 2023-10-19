@@ -1,9 +1,7 @@
 
 #ifndef TESTE_H_INCLUDED
 #define TESTE_H_INCLUDED
-
 // Incluir cabeçalhos.
-
 #include "dominio.h"
 #include "entidade.h"
 
@@ -28,6 +26,5 @@ public:
     const static int FALHA   = -1;          // Definição de constante para reportar resultado de teste.
     int run();                              // Método para executar teste.
 };
-
 
 #endif

@@ -1,4 +1,8 @@
-#include <iostream>
+#ifndef DOMINIOS_H_INCLUDED
+#define DOMINIOS_H_INCLUDED
+
+
+#include <stdexcept>
 #include <algorithm>
 
 using namespace std;
@@ -6,11 +10,11 @@ using namespace std;
 class CODIGO{
     private:
         string codigo;
-        void verifica(string codigo);
+        void verifica(string);
 
     public:
         string GetCodigo();
-        void SetCodigo(string codigo);
+        void SetCodigo(string);
 };
 
 //---------------------------------------------------------------------------//
@@ -18,11 +22,11 @@ class CODIGO{
 class TEXTO{
     private:
         string texto;
-        void verifica(string texto);
+        void verifica(string);
     
     public:
         string GetTexto();
-        void SetTexto(string texto);
+        void SetTexto(string);
 };
 
 //---------------------------------------------------------------------------//
@@ -30,11 +34,11 @@ class TEXTO{
 class LIMITE{
     private:
         int limite;
-        void verifica(int limite);
+        void verifica(int);
 
     public:
         int GetLimite();
-        void SetLimite(int limite);
+        void SetLimite(int);
 };
 
 //---------------------------------------------------------------------------//
@@ -42,11 +46,11 @@ class LIMITE{
 class COLUNA{
     private:
         string coluna;
-        void verifica(string coluna);
+        void verifica(string);
         
     public:
         string GetColuna();
-        void SetColuna(string coluna);
+        void SetColuna(string);
 };
 
 //---------------------------------------------------------------------------//
@@ -54,11 +58,11 @@ class COLUNA{
 class SENHA{
     private:
         string senha;
-        void verifica(string senha);
+        void verifica(string);
         
     public:
         string GetSenha();
-        void SetSenha(string senha);
+        void SetSenha(string);
 };
 
 //---------------------------------------------------------------------------//
@@ -66,10 +70,10 @@ class SENHA{
 class EMAIL{
     private:
         string email;
-        void verifica(string email);
-        string SeparaEmail(string parte, string email);
+        void verifica(string);
+        string SeparaEmail(string, string);
     public:
-        void SetEmail(string email);
+        void SetEmail(string);
         string GetEmail();
 };
 
@@ -138,3 +142,5 @@ inline void LIMITE::SetLimite(int limite){
 inline int LIMITE::GetLimite(){
     return limite;
 }
+
+#endif
