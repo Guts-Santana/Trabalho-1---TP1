@@ -5,17 +5,24 @@ using namespace std;
 
 void SENHA::verifica(string senha){
     if (senha.length() != 5) throw invalid_argument("Argumento invalido");
-    int maiusculo, minusculo, digito, ponto, repetido = 0;
+    int maiusculo = 0;
+    int digito = 0;
+    int minusculo = 0;
+    int ponto = 0;
+    int repetido = 1;
+
     string pontuacao = ".,!?;";
     for (char i : senha){
         if (int(i) >= (int)'A' && int(i) <= (int) 'Z')
         	maiusculo = 1;
-        if (int(i) >= (int)'a' && int(i) <= (int) 'z')
+        else if (int(i) >= (int)'a' && int(i) <= (int) 'z')
         	minusculo = 1;
-        if (int(i) >= (int)'0' && int(i) <= (int) '9')
+        else if (int(i) >= (int)'0' && int(i) <= (int) '9')
         	digito = 1;
-        if (find(pontuacao.begin(), pontuacao.end(), i) != pontuacao.end())
+        else if (find(pontuacao.begin(), pontuacao.end(), i) != pontuacao.end())
         	ponto = 1;
+        else
+            throw invalid_argument("Argumento invalido");
     }
     
     for (int i = 0; i < 4; i++){
@@ -25,12 +32,11 @@ void SENHA::verifica(string senha){
 				break;
             }
         }
-		if (repetido == 1)
+		if (repetido == 0)
 			break;
     }
-
-    if (!(maiusculo & minusculo & digito & ponto & !repetido));
-    throw invalid_argument("Argumento invalido");
+    if (!(maiusculo & minusculo & digito & ponto & repetido))
+        throw invalid_argument("Argumento invalido");
 }
 
 
@@ -171,12 +177,13 @@ void TEXTO::verifica(string texto) {
         }
         throw invalid_argument("Argumento invalido"); // Tamanho do texto fora dos limites
     }
-    throw invalid_argument("Argumento invalido"); // Primeira letra miniscula
+    throw invalid_argument("Argumento invalido"); // Primeira letra minuscula
 }
 
 //---------------------------------------------------------------------------//
 
 void LIMITE::verifica(int limite){
-    if (limite == 5 || limite == 10 || limite == 15 || limite == 20)
+    if (limite == 5 || limite == 10 || limite == 15 || limite == 20) {}
+    else
         throw invalid_argument("Argumento invalido");
 }

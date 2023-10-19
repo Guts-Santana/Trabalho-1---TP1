@@ -25,5 +25,41 @@ int main() {
             break;
     }
 
+    TUEMAIL testeC;
+
+    switch(testeC.Run()){
+        case TUEMAIL::SUCESSO: cout << "SUCESSO - EMAIL" << endl;
+            break;
+        case TUEMAIL::FALHA  : cout << "FALHA  - EMAIL" << endl;
+            break;
+    }
+
+    TULIMITE testeD;
+
+    switch(testeD.Run()){
+        case TULIMITE::SUCESSO: cout << "SUCESSO - LIMITE" << endl;
+            break;
+        case TULIMITE::FALHA  : cout << "FALHA  - LIMITE" << endl;
+            break;
+    }
+
+    TUSENHA testeE;
+
+    switch(testeE.Run()){
+        case TUSENHA::SUCESSO: cout << "SUCESSO - SENHA" << endl;
+            break;
+        case TUSENHA::FALHA  : cout << "FALHA  - SENHA" << endl;
+            break;
+    }
+
+    TUTEXTO testef;
+
+    switch(testeB.Run()){
+        case TUTEXTO::SUCESSO: cout << "SUCESSO - TEXTO" << endl;
+            break;
+        case TUTEXTO::FALHA  : cout << "FALHA  - TEXTO" << endl;
+            break;
+    }
+
     return 0;
 }

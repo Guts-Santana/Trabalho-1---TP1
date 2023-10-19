@@ -1,6 +1,5 @@
 #include "teste.h"
 
-
 // --------------------------------------------------------------------------
 // Implementações de métodos de classe de teste de unidade.
 
@@ -43,6 +42,8 @@ int TUCODIGO::Run(){
     return estado;
 }
 
+//---------------------------------------------------------------------------//
+
 void TUCOLUNA::SetUp(){
     coluna = new COLUNA();
     estado = SUCESSO;
@@ -75,6 +76,170 @@ void TUCOLUNA::TestarCenarioFalha(){
 }
 
 int TUCOLUNA::Run(){
+    SetUp();
+    TestarCenarioSucesso();
+    TestarCenarioFalha();
+    TearDown();
+    return estado;
+}
+
+//---------------------------------------------------------------------------//
+
+void TUEMAIL::SetUp(){
+    email = new EMAIL();
+    estado = SUCESSO;
+}
+
+void TUEMAIL::TearDown(){
+    delete email;
+}
+
+void TUEMAIL::TestarCenarioSucesso(){
+    try{
+        email->SetEmail(EMAIL_VALIDO);
+        if (email->GetEmail() != EMAIL_VALIDO)
+            estado = FALHA;
+    }
+    catch(invalid_argument &excecao){
+        estado = FALHA;
+    }
+}
+
+void TUEMAIL::TestarCenarioFalha(){
+    try{
+        email->SetEmail(EMAIL_INVALIDO);
+        estado = FALHA;
+    }
+    catch(invalid_argument &excecao){
+        if (email->GetEmail() == EMAIL_INVALIDO)
+            estado = FALHA;
+    }
+}
+
+int TUEMAIL::Run(){
+    SetUp();
+    TestarCenarioSucesso();
+    TestarCenarioFalha();
+    TearDown();
+    return estado;
+}
+
+//---------------------------------------------------------------------------//
+
+void TULIMITE::SetUp(){
+    limite = new LIMITE();
+    estado = SUCESSO;
+}
+
+void TULIMITE::TearDown(){
+    delete limite;
+}
+
+void TULIMITE::TestarCenarioSucesso(){
+    try{
+        limite->SetLimite(LIMITE_VALIDO);
+        if (limite->GetLimite() != LIMITE_VALIDO)
+            estado = FALHA;
+    }
+    catch(invalid_argument &excecao){
+        estado = FALHA;
+    }
+}
+
+void TULIMITE::TestarCenarioFalha(){
+    try{
+        limite->SetLimite(LIMITE_INVALIDO);
+        estado = FALHA;
+    }
+    catch(invalid_argument &excecao){
+        if (limite->GetLimite() == LIMITE_INVALIDO)
+            estado = FALHA;
+    }
+}
+
+int TULIMITE::Run(){
+    SetUp();
+    TestarCenarioSucesso();
+    TestarCenarioFalha();
+    TearDown();
+    return estado;
+}
+
+//---------------------------------------------------------------------------//
+
+void TUSENHA::SetUp(){
+    senha = new SENHA();
+    estado = SUCESSO;
+}
+
+void TUSENHA::TearDown(){
+    delete senha;
+}
+
+void TUSENHA::TestarCenarioSucesso(){
+    try{
+        senha->SetSenha(SENHA_VALIDA);
+        if (senha->GetSenha() != SENHA_VALIDA)
+            estado = FALHA;
+    }
+    catch(invalid_argument &excecao){
+        estado = FALHA;
+    }
+}
+
+void TUSENHA::TestarCenarioFalha(){
+    try{
+        senha->SetSenha(SENHA_INVALIDA);
+        estado = FALHA;
+    }
+    catch(invalid_argument &excecao){
+        if (senha->GetSenha() == SENHA_INVALIDA)
+            estado = FALHA;
+    }
+}
+
+int TUSENHA::Run(){
+    SetUp();
+    TestarCenarioSucesso();
+    TestarCenarioFalha();
+    TearDown();
+    return estado;
+}
+
+//---------------------------------------------------------------------------//
+
+void TUTEXTO::SetUp(){
+    texto = new TEXTO();
+    estado = SUCESSO;
+}
+
+void TUTEXTO::TearDown(){
+    delete texto;
+}
+
+void TUTEXTO::TestarCenarioSucesso(){
+    try{
+        texto->SetTexto(TEXTO_VALIDO);
+        if (texto->GetTexto() != TEXTO_VALIDO)
+            estado = FALHA;
+    }
+    catch(invalid_argument &excecao){
+        estado = FALHA;
+    }
+}
+
+void TUTEXTO::TestarCenarioFalha(){
+    try{
+        texto->SetTexto(TEXTO_INVALIDO);
+        estado = FALHA;
+    }
+    catch(invalid_argument &excecao){
+        if (texto->GetTexto() == TEXTO_INVALIDO)
+            estado = FALHA;
+    }
+}
+
+int TUTEXTO::Run(){
     SetUp();
     TestarCenarioSucesso();
     TestarCenarioFalha();
