@@ -1,7 +1,7 @@
 #include <iostream>
-#include "dominio.cpp"
-#include "entidade.cpp"
-#include "teste.cpp"
+#include "dominio.h"
+#include "entidade.h"
+#include "teste.h"
 
 using namespace std;
 

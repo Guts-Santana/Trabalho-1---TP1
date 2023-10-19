@@ -38,7 +38,7 @@ void TUCODIGO::TestarCenarioFalha(){
 int TUCODIGO::Run(){
     SetUp();
     TestarCenarioSucesso();
-    //TestarCenarioFalha();
+    TestarCenarioFalha();
     TearDown();
     return estado;
 }

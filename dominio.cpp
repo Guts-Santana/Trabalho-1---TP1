@@ -42,7 +42,6 @@ void CODIGO::verifica(string codigo){
     if ((int)codigo[1] <= (int) 'A' && (int)codigo[1] >= 'Z') throw invalid_argument("Argumento invalido");
     if ((int)codigo[2] <= (int) '0' && (int)codigo[2] >= '9') throw invalid_argument("Argumento invalido");
     if ((int)codigo[3] <= (int) '0' && (int)codigo[3] >= '9') throw invalid_argument("Argumento invalido");
-    ;
 }
 
 //---------------------------------------------------------------------------//
