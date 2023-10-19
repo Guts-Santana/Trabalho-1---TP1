@@ -24,7 +24,7 @@ private:
 public:
     const static int SUCESSO =  0;          // Definição de constante para reportar resultado de teste.
     const static int FALHA   = -1;          // Definição de constante para reportar resultado de teste.
-    int run();                              // Método para executar teste.
+    int Run();                              // Método para executar teste.
 };
 
 #endif
