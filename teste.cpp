@@ -277,4 +277,4 @@ int TUProjeto::run(){
     tearDown();
     return estado; /**< Retorna o estado final dos testes (SUCESSO ou FALHA). */
 }
-*/
+
