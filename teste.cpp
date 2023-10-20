@@ -1,6 +1,4 @@
 #include "teste.h"
-#include <iostream>
-using namespace std;
 
 // --------------------------------------------------------------------------
 /**< Implementações de métodos de classe de teste de unidade. */

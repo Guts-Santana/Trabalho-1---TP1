@@ -2,7 +2,7 @@ all: teste.cpp teste.h teste.o entidade.cpp entidade.h entidade.o dominio.cpp do
 	g++ -std=c++11 -Wall teste.o entidade.o dominio.o main.cpp -o main
 	./main
 
-compile: teste.cpp teste.h entidade.cpp entidade.h dominio.cpp dominio.h main.o
+compile: teste.o entidade.o dominio.o main.o
 	g++ -std=c++11 -Wall teste.o entidade.o dominio.o main.cpp -o main
 	
 

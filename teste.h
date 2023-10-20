@@ -113,6 +113,7 @@ public:
     const static int FALHA = -1; /**< Constante que representa o estado de falha do teste. */
     /**< Metodo publico */
     int Run(); /**< Método para executar os testes de unidade. */
+};
 
 class TUTEXTO {
 private:
@@ -150,8 +151,7 @@ private:
     */
     void SetUp(); /**< Método para configurar o ambiente de teste. */
     void TearDown();  /**< Método para limpar o ambiente de teste. */
-    void TestarCenarioSucesso(); /**< Método para testar o cenário de sucesso. */
-    void TestarCenarioFalha(); /**< Método para testar o cenário de falha. */    
+    void TestarCenarioSucesso(); /**< Método para testar o cenário de sucesso. */   
 
 public:
     const static int SUCESSO =  0;  /**< Constante que representa o estado de sucesso do teste. */
@@ -175,7 +175,6 @@ private:
     void SetUp(); /**< Método para configurar o ambiente de teste. */
     void TearDown();  /**< Método para limpar o ambiente de teste. */
     void TestarCenarioSucesso(); /**< Método para testar o cenário de sucesso. */
-    void TestarCenarioFalha(); /**< Método para testar o cenário de falha. */  
 
 public:
     const static int SUCESSO =  0;  /**< Constante que representa o estado de sucesso do teste. */
@@ -198,7 +197,6 @@ private:
     void SetUp(); /**< Método para configurar o ambiente de teste. */
     void TearDown();  /**< Método para limpar o ambiente de teste. */
     void TestarCenarioSucesso(); /**< Método para testar o cenário de sucesso. */
-    void TestarCenarioFalha(); /**< Método para testar o cenário de falha. */  
 
 public:
     const static int SUCESSO =  0;  /**< Constante que representa o estado de sucesso do teste. */

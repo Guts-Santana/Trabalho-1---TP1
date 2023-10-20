@@ -1,0 +1,18 @@
+O trabalho foi feito pelos alunos:
+
+1- Alan Henrique Rangel Ferreira - 190101270
+2- Gabriel Lopes Soares Damasceno - 221029310
+3- Gustavo Santana Lima - 211038235
+4- Victor Enéias Oliveira - 221038364
+
+Para o funcionamento do codigo é necessário a realização da compilação usando o makefile,
+de preferência compile parte por parte, com os comandos:
+make dominio.o;
+make entidade.o;
+make teste.o.
+Mas pode ser feito direto com o comando make compile
+Após isso deve ser utilizado o comando make. De modo que os testes orientados a objetos
+irão rodar e deverão ser lançados na tela do terminal.
+
+Os arquivos html foram gerados usando o doxygen e para serem lançados se utiliza o comando
+"doxygen -g" para iniciar e "doxygen" para os arquivos serem criados.
