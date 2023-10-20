@@ -4,6 +4,9 @@ using namespace std;
 
 
 void SENHA::verifica(string senha){
+// verifica se a senha atende a critérios específicos 
+// parametro: a senha verificada
+// saida: "argumento invalido" caso não atenda um dos critérios
     if (senha.length() != 5) throw invalid_argument("Argumento invalido");
     int maiusculo = 0;
     int digito = 0;
