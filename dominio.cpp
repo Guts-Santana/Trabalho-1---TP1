@@ -16,6 +16,7 @@ void SENHA::verifica(string senha){
 * saida: "argumento invalido" caso a senha não atenda um dos critérios estabelecidos.
 */
     if (senha.length() != 5) throw invalid_argument("Argumento invalido");
+    /**< variaveis para verificação de casa critério. */
     int maiusculo = 0;
     int digito = 0;
     int minusculo = 0;
@@ -24,6 +25,7 @@ void SENHA::verifica(string senha){
 
     string pontuacao = ".,!?;";
     for (char i : senha){
+	/**< Verifica cada caractere na senha para determinar se ele é maiúsculo, minúsculo, um dígito, um caractere de pontuação */
         if (int(i) >= (int)'A' && int(i) <= (int) 'Z')
         	maiusculo = 1;
         else if (int(i) >= (int)'a' && int(i) <= (int) 'z')
@@ -38,6 +40,7 @@ void SENHA::verifica(string senha){
     
     for (int i = 0; i < 4; i++){
         for (int j = i+1; j < 5; j++){
+	    /**<  Verifica se há caracteres repetidos na senha. */
             if (senha[i] == senha[j]){
                 repetido = 1;
 				break;
@@ -56,16 +59,14 @@ void SENHA::verifica(string senha){
 void CODIGO::verifica(string codigo){
 /** 
 * verifica se o código atende a alguns critérios específicos:
-* - O primeiro e o segundo caractere devem estar entre 'A' e 'Z';
-* - O terceiro e o quarto caractere devem ser dígitos de 0 a 9;
 * @param o código verificado.
 * saida: "argumento invalido" caso o código não atenda um dos critérios estabelecidos.
 */
 
-    if ((int)codigo[0] < (int) 'A' || (int)codigo[0] > 'Z') throw invalid_argument("Argumento invalido");
-    if ((int)codigo[1] < (int) 'A' || (int)codigo[1] > 'Z') throw invalid_argument("Argumento invalido");
-    if ((int)codigo[2] < (int) '0' || (int)codigo[2] > '9') throw invalid_argument("Argumento invalido");
-    if ((int)codigo[3] < (int) '0' || (int)codigo[3] > '9') throw invalid_argument("Argumento invalido");
+    if ((int)codigo[0] < (int) 'A' || (int)codigo[0] > 'Z') throw invalid_argument("Argumento invalido"); /**< verifica se o primeiro caractere está entre 'A' e 'Z' */
+    if ((int)codigo[1] < (int) 'A' || (int)codigo[1] > 'Z') throw invalid_argument("Argumento invalido"); /**< verifica se o segundo caractere está entre 'A' e 'Z' */
+    if ((int)codigo[2] < (int) '0' || (int)codigo[2] > '9') throw invalid_argument("Argumento invalido"); /**< verifica se o terceiro caractere é um dígito de'0' a '9' */
+    if ((int)codigo[3] < (int) '0' || (int)codigo[3] > '9') throw invalid_argument("Argumento invalido"); /**< verifica se o quarto caractere é um dígito de'0' a '9' */
 }
 
 //---------------------------------------------------------------------------//
@@ -73,20 +74,23 @@ void CODIGO::verifica(string codigo){
 void COLUNA::verifica(string coluna){
 /** 
 * verifica se a coluna atende a um critério específico:
-* - A coluna deve ser uma das seguintes opções: "SOLICITADO", "EM EXECUÇÃO" ou "CONCLUIDO".
 * @param a coluna verificada.
 * saida: "argumento invalido" caso a coluna não atenda ao critério estabelecido.
 */
-    if (coluna == "SOLICITADO" || coluna == "EM EXECUÇÃO" ||coluna == "CONCLUIDO") return;
+    if (coluna == "SOLICITADO" || coluna == "EM EXECUÇÃO" ||coluna == "CONCLUIDO") return; /**< verifica se a coluna é uma das seguintes opções: "SOLICITADO", "EM EXECUÇÃO" ou "CONCLUIDO". */
     throw invalid_argument("Argumento invalido");
 }
 
 //---------------------------------------------------------------------------//
 
 void EMAIL::verifica(string email){
-    //verificar o nome
+    /** 
+    * verifica se o endereço de email atende a alguns critérios específicos:
+    * @param o endereço de email verificado.
+    * saida: "argumento invalido" caso o endereço de email não atenda um dos critérios estabelecidos.
+    */ 
     int separador = 0;
-    string nome, dominio;
+    string nome, dominio; /**< Variáveis para armazenar o nome e o domínio do e-mail. */
     for (int i = 1; i < email.length(); i++)
     {
         if (email[i] == '.'){
@@ -94,6 +98,7 @@ void EMAIL::verifica(string email){
                 throw invalid_argument("Argumento invalido");
         }
         if (email[i]=='@') {
+	    /**< Extrai o nome e o domínio com base na posição do '@'*/	
             nome = email.substr(0,i);
             dominio = email.substr(i+1,email.length()-1);
             if (email[i-1] == '.')
@@ -106,8 +111,10 @@ void EMAIL::verifica(string email){
         throw invalid_argument("Argumento invalido");
 
     }
+    /**< Verifica se o comprimento do nome está entre 2 e 10 caracteres. */	
     if (nome.length() < 2 || nome.length() > 10)
         throw invalid_argument("Argumento invalido");
+    /** Verifica se o comprimento do domínio está entre 2 e 20 caracteres. */	
     if (dominio.length() <2 || dominio.length() >20)
         throw invalid_argument("Argumento invalido");
 }
