@@ -255,11 +255,11 @@ void TUCONTA::SetUp(){  /** Configura o ambiente de teste. */
     estado = SUCESSO;
 }
 
-void TUCONTA::TearDown(){ /** Limpa o ambiente de teste, excluindo a instância TEXTO. */
+void TUCONTA::TearDown(){ /** Limpa o ambiente de teste, excluindo a instância CONTA. */
     delete conta;
 }
 
-void TUCONTA::TestarCenarioSucesso(){ /** Testa um cenário de sucesso em que o texto é definido como um texto válido. */
+void TUCONTA::TestarCenarioSucesso(){ /** Testa um cenário de sucesso em que a conta é definida como uma conta válida. */
 
     EMAIL email;
     email.SetEmail(EMAIL_VALIDO);
@@ -294,11 +294,11 @@ void TUQUADRO::SetUp(){  /** Configura o ambiente de teste. */
     estado = SUCESSO;
 }
 
-void TUQUADRO::TearDown(){ /** Limpa o ambiente de teste, excluindo a instância TEXTO. */
+void TUQUADRO::TearDown(){ /** Limpa o ambiente de teste, excluindo a instância QUADRO. */
     delete quadro;
 }
 
-void TUQUADRO::TestarCenarioSucesso(){ /** Testa um cenário de sucesso em que o texto é definido como um texto válido. */
+void TUQUADRO::TestarCenarioSucesso(){ /** Testa um cenário de sucesso em que o quadro é definido como um quadro válido. */
 
     CODIGO codigo;
     codigo.SetCodigo(CODIGO_VALIDO);
@@ -339,11 +339,11 @@ void TUCARTAO::SetUp(){  /** Configura o ambiente de teste. */
     estado = SUCESSO;
 }
 
-void TUCARTAO::TearDown(){ /** Limpa o ambiente de teste, excluindo a instância TEXTO. */
+void TUCARTAO::TearDown(){ /** Limpa o ambiente de teste, excluindo a instância CARTAO. */
     delete cartao;
 }
 
-void TUCARTAO::TestarCenarioSucesso(){ /** Testa um cenário de sucesso em que o texto é definido como um texto válido. */
+void TUCARTAO::TestarCenarioSucesso(){ /** Testa um cenário de sucesso em que o cartao é definido como um cartao válido. */
 
     CODIGO codigo;
     codigo.SetCodigo(CODIGO_VALIDO);
