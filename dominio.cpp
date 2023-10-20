@@ -12,7 +12,7 @@ void SENHA::verifica(string senha){
 * - Deve conter pelo menos um dígito;
 * - Deve conter pelo menos um dos seguintes caracteres de pontuação: '.', ',', '!', '?', ';';
 * - Não deve conter caracteres repetidos;
-* parametro: a senha verificada.
+* @param a senha verificada.
 * saida: "argumento invalido" caso a senha não atenda um dos critérios estabelecidos.
 */
     if (senha.length() != 5) throw invalid_argument("Argumento invalido");
@@ -58,7 +58,7 @@ void CODIGO::verifica(string codigo){
 * verifica se o código atende a alguns critérios específicos:
 * - O primeiro e o segundo caractere devem estar entre 'A' e 'Z';
 * - O terceiro e o quarto caractere devem ser dígitos de 0 a 9;
-* parametro: o código verificado.
+* @param o código verificado.
 * saida: "argumento invalido" caso o código não atenda um dos critérios estabelecidos.
 */
 
@@ -74,7 +74,7 @@ void COLUNA::verifica(string coluna){
 /** 
 * verifica se a coluna atende a um critério específico:
 * - A coluna deve ser uma das seguintes opções: "SOLICITADO", "EM EXECUÇÃO" ou "CONCLUIDO".
-* parametro: a coluna verificada.
+* @param a coluna verificada.
 * saida: "argumento invalido" caso a coluna não atenda ao critério estabelecido.
 */
     if (coluna == "SOLICITADO" || coluna == "EM EXECUÇÃO" ||coluna == "CONCLUIDO") return;
@@ -89,7 +89,7 @@ void EMAIL::verifica(string email){
 * verifica se o endereço de email atende a alguns critérios específicos:
 * - O nome de usuário deve ter entre 3 e 10 caracteres alfanuméricos e pode conter pontos ('.') intercalados, mas não pode começar ou terminar com um ponto;
 * - O domínio deve ter entre 3 e 10 caracteres alfanuméricos e pode conter pontos ('.') intercalados, mas não pode começar ou terminar com um ponto;
-* parametro: o endereço de email verificado.
+* @param o endereço de email verificado.
 * saida: "argumento invalido" caso o endereço de email não atenda um dos critérios estabelecidos.
 */
     string nome = SeparaEmail("nome", email);
@@ -173,7 +173,7 @@ void TEXTO::verifica(string texto) {
 * - Os caracteres permitidos são letras (maiúsculas e minúsculas), pontuações ('.', ',', ';', '!', '?') e espaços em branco;
 * - Não deve conter caracteres com acentuação;
 * - Não deve conter sequências de pontuação ou espaços em branco consecutivos;
-* parametro: o texto verificado
+* @param o texto verificado
 * saida: "argumento invalido" caso o texto não atenda um dos critérios estabelecidos.
 */
     string pontuacao = ".,;!?";
@@ -227,7 +227,7 @@ void LIMITE::verifica(int limite){
 /** 
 * verifica se o limite atende a um critério específico:
 * - o limite deve ser um dos seguintes valores: 5, 10, 15, 20.
-* parametro: o limite verificado
+* @param o limite verificado
 * saida: "argumento invalido" caso o limite não atenda ao critério estabelecido.
 */
     if (limite == 5 || limite == 10 || limite == 15 || limite == 20) {}
