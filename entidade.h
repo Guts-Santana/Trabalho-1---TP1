@@ -12,12 +12,24 @@ class CONTA{
         SENHA senha;
 
     public:
+        /**
+        * Define o nome associado à conta.
+        * @param nome O nome a ser associado à conta.
+        */
         void SetNome(const TEXTO&);
+        /**
+        * Define o email associado à conta.
+        * @param nome O nome a ser associado à conta.
+        */
         void SetEmail(const EMAIL&);
+        /**
+        * Define a senha associado à conta.
+        * @param nome O nome a ser associado à conta.
+        */
         void SetSenha(const SENHA&);
-        TEXTO GetNome() const;
-        EMAIL GetEmail() const;
-        SENHA GetSenha() const;
+        TEXTO GetNome() const; /**< Obtém e retorna o nome associado à conta. */
+        EMAIL GetEmail() const; /**< Obtém e retorna o endereço de e-mail associado à conta. */
+        SENHA GetSenha() const; /**< Obtém e retorna a senha associada à conta. */
 };
 
 class QUADRO{
@@ -28,14 +40,30 @@ class QUADRO{
         LIMITE limite;
 
     public:
+        /**
+        * Define o código.
+        * @param código.
+        */
         void SetCodigo(const CODIGO&);
+        /**
+        * Define o nome.
+        * @param nome.
+        */
         void SetNome(const TEXTO&);
+        /**
+        * Define a descrição.
+        * @param a descrição.
+        */
         void SetDescricao(const TEXTO&);
+        /**
+        * Define o limite.
+        * @param limite.
+        */
         void SetLimite(const LIMITE&);
-        CODIGO GetCodigo() const;
-        TEXTO GetNome() const;
-        TEXTO GetDescricao() const;
-        LIMITE GetLimite() const;
+        CODIGO GetCodigo() const; /**< Obtém e retorna o código. */
+        TEXTO GetNome() const; /**< Obtém e retorna o nome. */
+        TEXTO GetDescricao() const; /**< Obtém e retorna a descrição. */
+        LIMITE GetLimite() const; /**< Obtém e retorna o limite. */
 };
 
 class CARTAO{
@@ -46,14 +74,30 @@ class CARTAO{
         COLUNA coluna;
     
     public:
+        /**
+        * Define o código.
+        * @param código.
+        */
         void SetCodigo(const CODIGO&);
+        /**
+        * Define o nome.
+        * @param nome.
+        */
         void SetNome(const TEXTO&);
+        /**
+        * Define a descrição.
+        * @param a descrição.
+        */
         void SetDescricao(const TEXTO&);
+        /**
+        * Define a coluna.
+        * @param a coluna.
+        */
         void SetColuna(const COLUNA&);
-        CODIGO GetCodigo() const; 
-        TEXTO GetNome() const;
-        TEXTO GetDescricao() const;
-        COLUNA GetColuna() const;
+        CODIGO GetCodigo() const;  /**< Obtém e retorna o código. */
+        TEXTO GetNome() const; /**< Obtém e retorna o nome. */
+        TEXTO GetDescricao() const; /**< Obtém e retorna a descrição. */
+        COLUNA GetColuna() const; /**< Obtém e retorna a coluna. */
 };
 
 //---------------------------------------------------------------------------//
