@@ -52,12 +52,39 @@ int main() {
             break;
     }
 
-    TUTEXTO testef; /**< teste para a classe TUTEXTO*/
+    TUTEXTO testeF; /**< teste para a classe TUTEXTO*/
 
-    switch(testeB.Run()){
+    switch(testeF.Run()){
         case TUTEXTO::SUCESSO: cout << "SUCESSO - TEXTO" << endl;
             break;
         case TUTEXTO::FALHA  : cout << "FALHA  - TEXTO" << endl;
+            break;
+    }
+
+    TUCONTA testeG;
+
+    switch(testeG.Run()){
+        case TUCONTA::SUCESSO: cout << "SUCESSO - CONTA" << endl;
+            break;
+        case TUCONTA::FALHA  : cout << "FALHA - CONTA" << endl;
+            break;
+    }
+
+    TUQUADRO testeH;
+
+    switch(testeH.Run()){
+        case TUQUADRO::SUCESSO: cout << "SUCESSO - QUADRO" << endl;
+            break;
+        case TUQUADRO::FALHA  : cout << "FALHA - QUADRO" << endl;
+            break;
+    }
+
+    TUCARTAO testeI;
+
+    switch(testeI.Run()){
+        case TUCARTAO::SUCESSO: cout << "SUCESSO - CARTAO" << endl;
+            break;
+        case TUCARTAO::FALHA  : cout << "FALHA - CARTAO" << endl;
             break;
     }
 

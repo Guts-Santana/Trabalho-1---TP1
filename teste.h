@@ -12,104 +12,159 @@ using namespace std;
 
 class TUCODIGO {
 private:
-    const string CODIGO_VALIDO   = "LL00";   // Definição de constante para evitar número mágico.
-    const string CODIGO_INVALIDO = "FALA";   // Definição de constante para evitar número mágico.
-    CODIGO *codigo;                         // Referência para unidade em teste.
-    int estado;                             // Estado do teste.
-    void SetUp();                           // Método para criar unidade em teste.
-    void TearDown();                        // Método para destruir unidade em teste.
-    void TestarCenarioSucesso();            // Cenário de teste.
-    void TestarCenarioFalha();              // Cenário de teste.
+    const string CODIGO_VALIDO   = "LL00";
+    const string CODIGO_INVALIDO = "FALA";
+    CODIGO *codigo;
+    int estado;
+    void SetUp();
+    void TearDown();
+    void TestarCenarioSucesso();
+    void TestarCenarioFalha();  
 
 public:
-    const static int SUCESSO =  0;          // Definição de constante para reportar resultado de teste.
-    const static int FALHA = -1;          // Definição de constante para reportar resultado de teste.
-    int Run();                              // Método para executar teste.
+    const static int SUCESSO =  0;
+    const static int FALHA = -1;
+    int Run();
 };
 
 class TUCOLUNA {
 private:
-    const string COLUNA_VALIDA = "CONCLUIDO";   // Definição de constante para evitar número mágico.
-    const string COLUNA_INVALIDA = "Conclui";   // Definição de constante para evitar número mágico.
-    COLUNA *coluna;                         // Referência para unidade em teste.
-    int estado;                             // Estado do teste.
-    void SetUp();                           // Método para criar unidade em teste.
-    void TearDown();                        // Método para destruir unidade em teste.
-    void TestarCenarioSucesso();            // Cenário de teste.
-    void TestarCenarioFalha();              // Cenário de teste.
+    const string COLUNA_VALIDA = "CONCLUIDO";
+    const string COLUNA_INVALIDA = "Conclui";
+    COLUNA *coluna;
+    int estado;
+    void SetUp();
+    void TearDown();
+    void TestarCenarioSucesso();
+    void TestarCenarioFalha();  
 
 public:
-    const static int SUCESSO =  0;          // Definição de constante para reportar resultado de teste.
-    const static int FALHA   = -1;          // Definição de constante para reportar resultado de teste.
-    int Run();                              // Método para executar teste.
+    const static int SUCESSO =  0;
+    const static int FALHA   = -1;
+    int Run();
 };
 
 class TUEMAIL {
 private:
-    const string EMAIL_VALIDO = "emaildas@gmail.com";   // Definição de constante para evitar número mágico.
-    const string EMAIL_INVALIDO = "emailnaovalido@.mail";   // Definição de constante para evitar número mágico.
-    EMAIL *email;                         // Referência para unidade em teste.
-    int estado;                             // Estado do teste.
-    void SetUp();                           // Método para criar unidade em teste.
-    void TearDown();                        // Método para destruir unidade em teste.
-    void TestarCenarioSucesso();            // Cenário de teste.
-    void TestarCenarioFalha();              // Cenário de teste.
+    const string EMAIL_VALIDO = "emailsmurf@gmail.com";
+    const string EMAIL_INVALIDO = "emailnaovalido@.mail";
+    EMAIL *email;
+    int estado;
+    void SetUp();
+    void TearDown();
+    void TestarCenarioSucesso();
+    void TestarCenarioFalha();  
 
 public:
-    const static int SUCESSO =  0;          // Definição de constante para reportar resultado de teste.
-    const static int FALHA   = -1;          // Definição de constante para reportar resultado de teste.
-    int Run();                              // Método para executar teste.
+    const static int SUCESSO =  0;
+    const static int FALHA   = -1;
+    int Run();
 };
 
 class TULIMITE {
 private:
-    const int LIMITE_VALIDO = 10;   // Definição de constante para evitar número mágico.
-    const int LIMITE_INVALIDO = 30;   // Definição de constante para evitar número mágico.
-    LIMITE *limite;                         // Referência para unidade em teste.
-    int estado;                             // Estado do teste.
-    void SetUp();                           // Método para criar unidade em teste.
-    void TearDown();                        // Método para destruir unidade em teste.
-    void TestarCenarioSucesso();            // Cenário de teste.
-    void TestarCenarioFalha();              // Cenário de teste.
+    const int LIMITE_VALIDO = 10;
+    const int LIMITE_INVALIDO = 30;
+    LIMITE *limite;
+    int estado;
+    void SetUp();
+    void TearDown();
+    void TestarCenarioSucesso();
+    void TestarCenarioFalha();  
 
 public:
-    const static int SUCESSO =  0;          // Definição de constante para reportar resultado de teste.
-    const static int FALHA   = -1;          // Definição de constante para reportar resultado de teste.
-    int Run();                              // Método para executar teste.
+    const static int SUCESSO =  0;
+    const static int FALHA   = -1;
+    int Run();
 };
 
 class TUSENHA {
 private:
-    const string SENHA_VALIDA = "T3s!A";   // Definição de constante para evitar número mágico.
-    const string SENHA_INVALIDA = "Fa!hA";   // Definição de constante para evitar número mágico.
-    SENHA *senha;                         // Referência para unidade em teste.
-    int estado;                             // Estado do teste.
-    void SetUp();                           // Método para criar unidade em teste.
-    void TearDown();                        // Método para destruir unidade em teste.
-    void TestarCenarioSucesso();            // Cenário de teste.
-    void TestarCenarioFalha();              // Cenário de teste.
+    const string SENHA_VALIDA = "T3s!A";
+    const string SENHA_INVALIDA = "Fa!hA";
+    SENHA *senha;
+    int estado;
+    void SetUp();
+    void TearDown();
+    void TestarCenarioSucesso();
+    void TestarCenarioFalha();  
 
 public:
-    const static int SUCESSO =  0;          // Definição de constante para reportar resultado de teste.
-    const static int FALHA   = -1;          // Definição de constante para reportar resultado de teste.
-    int Run();                              // Método para executar teste.
+    const static int SUCESSO =  0;
+    const static int FALHA   = -1;
+    int Run();
 };
 
 class TUTEXTO {
 private:
-    const string TEXTO_VALIDO = "Testei um caso. Ponto conta?";   // Definição de constante para evitar número mágico.
-    const string TEXTO_INVALIDO = "Pontuacao invalida. teste";   // Definição de constante para evitar número mágico.
-    TEXTO *texto;                         // Referência para unidade em teste.
-    int estado;                             // Estado do teste.
-    void SetUp();                           // Método para criar unidade em teste.
-    void TearDown();                        // Método para destruir unidade em teste.
-    void TestarCenarioSucesso();            // Cenário de teste.
-    void TestarCenarioFalha();              // Cenário de teste.
+    const string TEXTO_VALIDO = "Testei um caso.Ponto conta?";
+    const string TEXTO_INVALIDO = "Pontuacao invalida.teste";
+    TEXTO *texto;
+    int estado;
+    void SetUp();
+    void TearDown();
+    void TestarCenarioSucesso();
+    void TestarCenarioFalha();  
 
 public:
-    const static int SUCESSO =  0;          // Definição de constante para reportar resultado de teste.
-    const static int FALHA   = -1;          // Definição de constante para reportar resultado de teste.
-    int Run();                              // Método para executar teste.
+    const static int SUCESSO =  0;
+    const static int FALHA   = -1;
+    int Run();
 };
 
+//---------------------------------------------------------------------------//
+
+class TUCONTA {
+private:
+    const string EMAIL_VALIDO = "emailsmurf@gmail.com";
+    const string NOME_VALIDO = "Parapapapa";
+    const string SENHA_VALIDA = "Ch4m;";
+    CONTA *conta;
+    int estado;                             
+    void SetUp();                          
+    void TearDown();                      
+    void TestarCenarioSucesso();          
+
+public:
+    const static int SUCESSO =  0;
+    const static int FALHA   = -1;
+    int Run();
+};
+
+
+class TUQUADRO {
+private:
+    const string CODIGO_VALIDO = "TE01";
+    const string NOME_VALIDO = "Trabalho de TP1!";
+    const string DESCRICAO_VALIDA = "Parte de testes";
+    const int LIMITE_VALIDO = 10;
+    QUADRO *quadro;
+    int estado;                             
+    void SetUp();                          
+    void TearDown();                      
+    void TestarCenarioSucesso();            
+
+public:
+    const static int SUCESSO =  0;
+    const static int FALHA   = -1;
+    int Run();
+};
+
+class TUCARTAO {
+private:
+    const string CODIGO_VALIDO = "NM01";
+    const string NOME_VALIDO = "Arroz";
+    const string DESCRICAO_VALIDA = "Vamos testar codigos";
+    const string COLUNA_VALIDA = "CONCLUIDO";
+    CARTAO *cartao;
+    int estado;                             
+    void SetUp();                          
+    void TearDown();                      
+    void TestarCenarioSucesso();           
+
+public:
+    const static int SUCESSO =  0;
+    const static int FALHA   = -1;
+    int Run();
+};
 #endif

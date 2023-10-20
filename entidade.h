@@ -111,7 +111,7 @@ inline void CONTA::SetEmail(const EMAIL& email){
 }
 
 inline void CONTA::SetSenha(const SENHA& senha){
-    this -> email = email;
+    this -> senha = senha;
 }
 
 inline TEXTO CONTA::GetNome() const{

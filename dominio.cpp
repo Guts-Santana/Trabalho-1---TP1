@@ -63,10 +63,10 @@ void CODIGO::verifica(string codigo){
 * saida: "argumento invalido" caso o código não atenda um dos critérios estabelecidos.
 */
 
-    if ((int)codigo[0] < (int) 'A' || (int)codigo[0] > 'Z') throw invalid_argument("Argumento invalido"); /**< verifica se o primeiro caractere está entre 'A' e 'Z' */
-    if ((int)codigo[1] < (int) 'A' || (int)codigo[1] > 'Z') throw invalid_argument("Argumento invalido"); /**< verifica se o segundo caractere está entre 'A' e 'Z' */
-    if ((int)codigo[2] < (int) '0' || (int)codigo[2] > '9') throw invalid_argument("Argumento invalido"); /**< verifica se o terceiro caractere é um dígito de'0' a '9' */
-    if ((int)codigo[3] < (int) '0' || (int)codigo[3] > '9') throw invalid_argument("Argumento invalido"); /**< verifica se o quarto caractere é um dígito de'0' a '9' */
+    if ((int)codigo[0] < (int) 'A' || (int)codigo[0] > (int)'Z') throw invalid_argument("Argumento invalido"); /**< verifica se o primeiro caractere está entre 'A' e 'Z' */
+    if ((int)codigo[1] < (int) 'A' || (int)codigo[1] > (int)'Z') throw invalid_argument("Argumento invalido"); /**< verifica se o segundo caractere está entre 'A' e 'Z' */
+    if ((int)codigo[2] < (int) '0' || (int)codigo[2] > (int)'9') throw invalid_argument("Argumento invalido"); /**< verifica se o terceiro caractere é um dígito de'0' a '9' */
+    if ((int)codigo[3] < (int) '0' || (int)codigo[3] > (int)'9') throw invalid_argument("Argumento invalido"); /**< verifica se o quarto caractere é um dígito de'0' a '9' */
 }
 
 //---------------------------------------------------------------------------//
@@ -77,7 +77,7 @@ void COLUNA::verifica(string coluna){
 * @param a coluna verificada.
 * saida: "argumento invalido" caso a coluna não atenda ao critério estabelecido.
 */
-    if (coluna == "SOLICITADO" || coluna == "EM EXECUÇÃO" ||coluna == "CONCLUIDO") return; /**< verifica se a coluna é uma das seguintes opções: "SOLICITADO", "EM EXECUÇÃO" ou "CONCLUIDO". */
+    if (coluna == "SOLICITADO" || coluna == "EM EXECUCAO" ||coluna == "CONCLUIDO") return; /**< verifica se a coluna é uma das seguintes opções: "SOLICITADO", "EM EXECUÇÃO" ou "CONCLUIDO". */
     throw invalid_argument("Argumento invalido");
 }
 
@@ -134,48 +134,31 @@ void TEXTO::verifica(string texto) {
 * saida: "argumento invalido" caso o texto não atenda um dos critérios estabelecidos.
 */
     string pontuacao = ".,;!?";
-    int x = 0; // Contador de sequências de pontuação
-    int y = 0; // Contador de sequências de espaços em branco
-    if(isupper(texto[0])){
-        if (texto.size() >= 5 && texto.size() <= 30) {
-            int f = 0;
-            for (char i : texto) {
-                f++;
-                if (isalnum(i) || find(pontuacao.begin(), pontuacao.end(), i) != pontuacao.end() || i == ' ') {
-                    if ((int)i < 127) {
-                        if (find(pontuacao.begin(), pontuacao.end(), i) != pontuacao.end()) {
-                            x++;
-                            if (i != ',' || i != ';')
-                            {
-                                if (f != texto.length())
-                                {
-                                    if (!isupper(texto[f])) throw invalid_argument("Argumento invalido"); // letra minuscula pos pontuacao
-                                }
-                                
-                            }
-                            
-                        } else if (i == ' ') {
-                            y++;
-                        } else {
-                            y = 0;
-                            x = 0;
-                        }
-                        if (x > 1 || y > 1) {
-                            throw invalid_argument("Argumento invalido"); // Sequência inválida
-                        }
-                    } else {
-                        throw invalid_argument("Argumento invalido"); // Caractere com acentuação
-                    }
-                } else {
-                    throw invalid_argument("Argumento invalido"); // Caractere inválido
-                }
-
-            }
-            ; // Texto válido
+    if (!isupper(texto[0]))
+        throw invalid_argument("Argumento invalido");
+    if (texto.length() < 5 || texto.length() > 30)
+        throw invalid_argument("Argumento invalido");
+    for (int i = 1; i < texto.length(); i++) {
+        if (isalnum(texto[i]))
+            continue;
+        else if (find(pontuacao.begin(), pontuacao.end(), texto[i]) != pontuacao.end()) {
+            if (i != texto.length() -1){
+                if (find(pontuacao.begin(), pontuacao.end(), texto[i+1]) != pontuacao.end())
+                    throw invalid_argument("Argumento invalido");
+                if (texto[i] == ',' || texto[i] == ';')
+                    continue;
+                if (!isupper(texto[i+1]))
+                    throw invalid_argument("Argumento invalido");
+            }    
         }
-        throw invalid_argument("Argumento invalido"); // Tamanho do texto fora dos limites
+        else if (texto[i] == ' ') {
+            if (i != texto.length() -1){
+                if (texto[i+1] == ' ')
+                    throw invalid_argument("Argumento invalido");
+                continue;
+            }
+        }
     }
-    throw invalid_argument("Argumento invalido"); // Primeira letra minuscula
 }
 
 //---------------------------------------------------------------------------//

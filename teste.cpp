@@ -1,4 +1,6 @@
 #include "teste.h"
+#include <iostream>
+using namespace std;
 
 // --------------------------------------------------------------------------
 /**< Implementações de métodos de classe de teste de unidade. */
@@ -248,33 +250,131 @@ int TUTEXTO::Run(){
 }
 // --------------------------------------------------------------------------
 
-void TUProjeto::setUp(){  /** Configura o ambiente de teste. */
-    projeto = new Projeto();
+void TUCONTA::SetUp(){  /** Configura o ambiente de teste. */
+    conta = new CONTA();
     estado = SUCESSO;
 }
 
-void TUProjeto::tearDown(){ /** Limpa o ambiente de teste, excluindo a instância PROJETO. */
-    delete projeto;
+void TUCONTA::TearDown(){ /** Limpa o ambiente de teste, excluindo a instância TEXTO. */
+    delete conta;
 }
 
-void TUProjeto::testarCenarioSucesso(){ /** Testa um cenário de sucesso em que o projeto é definido como um projeto válido. */
+void TUCONTA::TestarCenarioSucesso(){ /** Testa um cenário de sucesso em que o texto é definido como um texto válido. */
+
+    EMAIL email;
+    email.SetEmail(EMAIL_VALIDO);
+    conta->SetEmail(email);
+    if(conta->GetEmail().GetEmail() != EMAIL_VALIDO)
+        estado = FALHA;
+
+    TEXTO nome;
+    nome.SetTexto(NOME_VALIDO);
+    conta->SetNome(nome);
+    if(conta->GetNome().GetTexto() != NOME_VALIDO)
+        estado = FALHA;
+
+    SENHA senha;
+    senha.SetSenha(SENHA_VALIDA);
+    conta->SetSenha(senha);
+    if(conta->GetSenha().GetSenha() != SENHA_VALIDA)
+        estado = FALHA;
+}
+
+int TUCONTA::Run(){
+    SetUp();
+    TestarCenarioSucesso();
+    TearDown();
+    return estado;
+}
+
+// --------------------------------------------------------------------------
+
+void TUQUADRO::SetUp(){  /** Configura o ambiente de teste. */
+    quadro = new QUADRO();
+    estado = SUCESSO;
+}
+
+void TUQUADRO::TearDown(){ /** Limpa o ambiente de teste, excluindo a instância TEXTO. */
+    delete quadro;
+}
+
+void TUQUADRO::TestarCenarioSucesso(){ /** Testa um cenário de sucesso em que o texto é definido como um texto válido. */
+
     CODIGO codigo;
-    codigo.setValor(VALOR_VALIDO);
-    projeto->setCodigo(codigo);
-    if(projeto->getCodigo().getValor() != VALOR_VALIDO)
+    codigo.SetCodigo(CODIGO_VALIDO);
+    quadro->SetCodigo(codigo);
+    if(quadro->GetCodigo().GetCodigo() != CODIGO_VALIDO)
         estado = FALHA;
 
-    Prioridade prioridade;
-    prioridade.setValor(VALOR_VALIDO);
-    projeto->setPrioridade(prioridade);
-    if(projeto->getPrioridade().getValor() != VALOR_VALIDO)
+    TEXTO nome;
+    nome.SetTexto(NOME_VALIDO);
+    quadro->SetNome(nome);
+    if(quadro->GetNome().GetTexto() != NOME_VALIDO)
+        estado = FALHA;
+
+    TEXTO descricao;
+    descricao.SetTexto(DESCRICAO_VALIDA);
+    quadro->SetDescricao(descricao);
+    if(quadro->GetDescricao().GetTexto() != DESCRICAO_VALIDA)
+        estado = FALHA;
+    
+    LIMITE limite;
+    limite.SetLimite(LIMITE_VALIDO);
+    quadro->SetLimite(limite);
+    if(quadro->GetLimite().GetLimite() != LIMITE_VALIDO)
         estado = FALHA;
 }
 
-int TUProjeto::run(){
-    setUp();
-    testarCenarioSucesso();
-    tearDown();
-    return estado; /**< Retorna o estado final dos testes (SUCESSO ou FALHA). */
+int TUQUADRO::Run(){
+    SetUp();
+    TestarCenarioSucesso();
+    TearDown();
+    return estado;
 }
+
+// --------------------------------------------------------------------------
+
+void TUCARTAO::SetUp(){  /** Configura o ambiente de teste. */
+    cartao = new CARTAO();
+    estado = SUCESSO;
+}
+
+void TUCARTAO::TearDown(){ /** Limpa o ambiente de teste, excluindo a instância TEXTO. */
+    delete cartao;
+}
+
+void TUCARTAO::TestarCenarioSucesso(){ /** Testa um cenário de sucesso em que o texto é definido como um texto válido. */
+
+    CODIGO codigo;
+    codigo.SetCodigo(CODIGO_VALIDO);
+    cartao->SetCodigo(codigo);
+    if(cartao->GetCodigo().GetCodigo() != CODIGO_VALIDO)
+        estado = FALHA;
+
+    TEXTO nome;
+    nome.SetTexto(NOME_VALIDO);
+    cartao->SetNome(nome);
+    if(cartao->GetNome().GetTexto() != NOME_VALIDO)
+        estado = FALHA;
+
+    TEXTO descricao;
+    descricao.SetTexto(DESCRICAO_VALIDA);
+    cartao->SetDescricao(descricao);
+    if(cartao->GetDescricao().GetTexto() != DESCRICAO_VALIDA)
+        estado = FALHA;
+
+    COLUNA coluna;
+    coluna.SetColuna(COLUNA_VALIDA);
+    cartao->SetColuna(coluna);
+    if(cartao->GetColuna().GetColuna() != COLUNA_VALIDA)
+        estado = FALHA;
+}   
+int TUCARTAO::Run(){
+    SetUp();
+    TestarCenarioSucesso();
+    TearDown();
+    return estado;
+}
+
+// --------------------------------------------------------------------------
 
