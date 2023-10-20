@@ -4,9 +4,17 @@ using namespace std;
 
 
 void SENHA::verifica(string senha){
-// verifica se a senha atende a critérios específicos 
-// parametro: a senha verificada
-// saida: "argumento invalido" caso não atenda um dos critérios
+/** 
+* verifica se a senha atende a alguns critérios específicos:
+* - Deve conter exatamente 5 caracteres;
+* - Deve conter pelo menos um caractere maiúsculo;
+* - Deve conter pelo menos um caractere minúsculo;
+* - Deve conter pelo menos um dígito;
+* - Deve conter pelo menos um dos seguintes caracteres de pontuação: '.', ',', '!', '?', ';';
+* - Não deve conter caracteres repetidos;
+* parametro: a senha verificada.
+* saida: "argumento invalido" caso a senha não atenda um dos critérios estabelecidos.
+*/
     if (senha.length() != 5) throw invalid_argument("Argumento invalido");
     int maiusculo = 0;
     int digito = 0;
@@ -46,6 +54,13 @@ void SENHA::verifica(string senha){
 //---------------------------------------------------------------------------//
 
 void CODIGO::verifica(string codigo){
+/** 
+* verifica se o código atende a alguns critérios específicos:
+* - O primeiro e o segundo caractere devem estar entre 'A' e 'Z';
+* - O terceiro e o quarto caractere devem ser dígitos de 0 a 9;
+* parametro: o código verificado.
+* saida: "argumento invalido" caso o código não atenda um dos critérios estabelecidos.
+*/
 
     if ((int)codigo[0] < (int) 'A' || (int)codigo[0] > 'Z') throw invalid_argument("Argumento invalido");
     if ((int)codigo[1] < (int) 'A' || (int)codigo[1] > 'Z') throw invalid_argument("Argumento invalido");
@@ -56,6 +71,12 @@ void CODIGO::verifica(string codigo){
 //---------------------------------------------------------------------------//
 
 void COLUNA::verifica(string coluna){
+/** 
+* verifica se a coluna atende a um critério específico:
+* - A coluna deve ser uma das seguintes opções: "SOLICITADO", "EM EXECUÇÃO" ou "CONCLUIDO".
+* parametro: a coluna verificada.
+* saida: "argumento invalido" caso a coluna não atenda ao critério estabelecido.
+*/
     if (coluna == "SOLICITADO" || coluna == "EM EXECUÇÃO" ||coluna == "CONCLUIDO") return;
     throw invalid_argument("Argumento invalido");
 }
@@ -64,7 +85,13 @@ void COLUNA::verifica(string coluna){
 
 
 void EMAIL::verifica(string email){
-    //verificar o nome
+/** 
+* verifica se o endereço de email atende a alguns critérios específicos:
+* - O nome de usuário deve ter entre 3 e 10 caracteres alfanuméricos e pode conter pontos ('.') intercalados, mas não pode começar ou terminar com um ponto;
+* - O domínio deve ter entre 3 e 10 caracteres alfanuméricos e pode conter pontos ('.') intercalados, mas não pode começar ou terminar com um ponto;
+* parametro: o endereço de email verificado.
+* saida: "argumento invalido" caso o endereço de email não atenda um dos critérios estabelecidos.
+*/
     string nome = SeparaEmail("nome", email);
     if(nome.size() < 11 and nome.size() > 2){
         for(char i: nome){
@@ -87,7 +114,6 @@ void EMAIL::verifica(string email){
             }
         }
     }
-    //verificar o dominio
     string dominio = SeparaEmail("dominio", email);
     if(dominio.size() < 11 and dominio.size() > 2){
         for(char i: dominio){
@@ -113,6 +139,9 @@ void EMAIL::verifica(string email){
 }
 
 string EMAIL::SeparaEmail(string parte, string email){
+/**
+* Separa o nome de usuário ou o domínio de um endereço de e-mail.
+*/  	
     string x, y;
     for(int j = 0; char i : email){
         if(i == '@'){
@@ -137,7 +166,16 @@ string EMAIL::SeparaEmail(string parte, string email){
 //---------------------------------------------------------------------------//
 
 void TEXTO::verifica(string texto) {
-
+/** 
+* verifica se o texto atende a alguns critérios específicos:
+* - A primeira letra deve ser maiúscula;
+* - O texto deve ter no mínimo 5 e no máximo 30 caracteres;
+* - Os caracteres permitidos são letras (maiúsculas e minúsculas), pontuações ('.', ',', ';', '!', '?') e espaços em branco;
+* - Não deve conter caracteres com acentuação;
+* - Não deve conter sequências de pontuação ou espaços em branco consecutivos;
+* parametro: o texto verificado
+* saida: "argumento invalido" caso o texto não atenda um dos critérios estabelecidos.
+*/
     string pontuacao = ".,;!?";
     int x = 0; // Contador de sequências de pontuação
     int y = 0; // Contador de sequências de espaços em branco
@@ -186,6 +224,12 @@ void TEXTO::verifica(string texto) {
 //---------------------------------------------------------------------------//
 
 void LIMITE::verifica(int limite){
+/** 
+* verifica se o limite atende a um critério específico:
+* - o limite deve ser um dos seguintes valores: 5, 10, 15, 20.
+* parametro: o limite verificado
+* saida: "argumento invalido" caso o limite não atenda ao critério estabelecido.
+*/
     if (limite == 5 || limite == 10 || limite == 15 || limite == 20) {}
     else
         throw invalid_argument("Argumento invalido");
