@@ -59,75 +59,33 @@ void COLUNA::verifica(string coluna){
 
 //---------------------------------------------------------------------------//
 
-
 void EMAIL::verifica(string email){
     //verificar o nome
-    string nome = SeparaEmail("nome", email);
-    if(nome.size() < 11 and nome.size() > 2){
-        for(char i: nome){
-            if(!isalnum(i) or i == '.'){
+    int separador = 0;
+    string nome, dominio;
+    for (int i = 1; i < email.length(); i++)
+    {
+        if (email[i] == '.'){
+            if (email[i-1] == '.' || email[i-1] == '@')
                 throw invalid_argument("Argumento invalido");
-            }
-            if(nome.back() == '.'){
-                throw invalid_argument("Argumento invalido");
-            }
-            for(int j = 0;char i : nome){
-                if(i == '.'){
-                    j++;
-                }
-                else{
-                    j = 0;
-                }
-                if(j == 2){
-                    throw invalid_argument("Argumento invalido");
-                }
-            }
         }
-    }
-    //verificar o dominio
-    string dominio = SeparaEmail("dominio", email);
-    if(dominio.size() < 11 and dominio.size() > 2){
-        for(char i: dominio){
-            if(!isalnum(i) and i != '.'){
+        if (email[i]=='@') {
+            nome = email.substr(0,i);
+            dominio = email.substr(i+1,email.length()-1);
+            if (email[i-1] == '.')
                 throw invalid_argument("Argumento invalido");
-            }
-            if(dominio.back() == '.'){
-                throw invalid_argument("Argumento invalido");
-            }
-            for(int j = 0;char i : dominio){
-                if(i == '.'){
-                    j++;
-                }
-                else{
-                    j = 0;
-                }
-                if(j == 2){
-                    throw invalid_argument("Argumento invalido");
-                }
-            }
-        }
-    }
-}
+            continue;
+        }   
+        if (isalpha(email[i]) || isdigit(email[i]) || email[i]== '.')
+            continue;
+        else
+        throw invalid_argument("Argumento invalido");
 
-string EMAIL::SeparaEmail(string parte, string email){
-    string x, y;
-    for(int j = 0; char i : email){
-        if(i == '@'){
-            j++;
-        }
-        else if(j==0){
-            x = x + i;
-        }
-        else{
-            y = y + i;
-        }
     }
-    if(parte == "nome"){
-        return x;
-    }
-    else if(parte == "dominio"){
-        return y;
-    }
+    if (nome.length() < 2 || nome.length() > 10)
+        throw invalid_argument("Argumento invalido");
+    if (dominio.length() <2 || dominio.length() >20)
+        throw invalid_argument("Argumento invalido");
 }
 
 

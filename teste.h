@@ -46,7 +46,7 @@ public:
 
 class TUEMAIL {
 private:
-    const string EMAIL_VALIDO = "emaildasmurfil.com";   // Definição de constante para evitar número mágico.
+    const string EMAIL_VALIDO = "emaildas@gmail.com";   // Definição de constante para evitar número mágico.
     const string EMAIL_INVALIDO = "emailnaovalido@.mail";   // Definição de constante para evitar número mágico.
     EMAIL *email;                         // Referência para unidade em teste.
     int estado;                             // Estado do teste.
