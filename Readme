@@ -13,6 +13,8 @@ make teste.o.
 Mas pode ser feito direto com o comando make compile
 Após isso deve ser utilizado o comando make. De modo que os testes orientados a objetos
 irão rodar e deverão ser lançados na tela do terminal.
+A necessidade do makefile foi gerada a partir de um problema de compilação entre os
+arquivos .h e .cpp.
 
 Os arquivos html foram gerados usando o doxygen e para serem lançados se utiliza o comando
 "doxygen -g" para iniciar e "doxygen" para os arquivos serem criados.
