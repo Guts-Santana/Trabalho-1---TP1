@@ -19,12 +19,12 @@ class CONTA{
         void SetNome(const TEXTO&);
         /**
         * Define o email associado à conta.
-        * @param nome O nome a ser associado à conta.
+        * @param email O nome a ser associado à conta.
         */
         void SetEmail(const EMAIL&);
         /**
         * Define a senha associado à conta.
-        * @param nome O nome a ser associado à conta.
+        * @param senha O nome a ser associado à conta.
         */
         void SetSenha(const SENHA&);
         TEXTO GetNome() const; /**< Obtém e retorna o nome associado à conta. */

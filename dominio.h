@@ -13,8 +13,8 @@ class CODIGO{
         void verifica(string);
         /** 
         * verifica se o código atende a critérios específicos.
-        * @param o código verificado.
-        * saída: "argumento inválido" caso o código não atenda a um dos críterios estabelecidos.
+        * @param codigo verificado.
+        * saída: "argumento inválido" caso o texto não atenda a um dos críterios estabelecidos.
         */
 
     public:
@@ -37,7 +37,7 @@ class TEXTO{
         void verifica(string);
         /**
         * verifica se o texto atende a alguns critérios específicos.
-        * @param o texto verificado.
+        * @param texto verificado.
         * saída: "argumento inválido" caso o texto não atenda a um dos críterios estabelecidos.
         */
     
@@ -61,7 +61,7 @@ class LIMITE{
         void verifica(int);
         /**
         * verifica se o limite atende a alguns critérios específicos.
-        * @param o limite verificado.
+        * @param limite verificado.
         * saída: "argumento inválido" caso o limite não atenda a um dos críterios estabelecidos.
         */
         

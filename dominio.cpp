@@ -5,6 +5,7 @@ using namespace std;
 
 void SENHA::verifica(string senha){
 /** 
+ * @brief
 * verifica se a senha atende a alguns critérios específicos:
 * - Deve conter exatamente 5 caracteres;
 * - Deve conter pelo menos um caractere maiúsculo;
@@ -12,8 +13,8 @@ void SENHA::verifica(string senha){
 * - Deve conter pelo menos um dígito;
 * - Deve conter pelo menos um dos seguintes caracteres de pontuação: '.', ',', '!', '?', ';';
 * - Não deve conter caracteres repetidos;
-* @param a senha verificada.
-* saida: "argumento invalido" caso a senha não atenda um dos critérios estabelecidos.
+* @param senha a ser verificada.
+* @throw exception_type: argumento invalido caso a senha não atenda um dos critérios estabelecidos.
 */
     if (senha.length() != 5) throw invalid_argument("Argumento invalido");
     /**< variaveis para verificação de casa critério. */
@@ -25,7 +26,10 @@ void SENHA::verifica(string senha){
 
     string pontuacao = ".,!?;";
     for (char i : senha){
-	/**< Verifica cada caractere na senha para determinar se ele é maiúsculo, minúsculo, um dígito, um caractere de pontuação */
+	/**
+     * Verifica cada caractere na senha para determinar se ele é maiúsculo, 
+     * minúsculo, um dígito, um caractere de pontuação 
+     */
         if (int(i) >= (int)'A' && int(i) <= (int) 'Z')
         	maiusculo = 1;
         else if (int(i) >= (int)'a' && int(i) <= (int) 'z')
@@ -40,7 +44,9 @@ void SENHA::verifica(string senha){
     
     for (int i = 0; i < 4; i++){
         for (int j = i+1; j < 5; j++){
-	    /**<  Verifica se há caracteres repetidos na senha. */
+	    /**
+	     * @brief 
+	    Verifica se há caracteres repetidos na senha. */
             if (senha[i] == senha[j]){
                 repetido = 1;
 				break;
@@ -57,10 +63,13 @@ void SENHA::verifica(string senha){
 //---------------------------------------------------------------------------//
 
 void CODIGO::verifica(string codigo){
-/** 
+/**
+* @brief 
 * verifica se o código atende a alguns critérios específicos:
-* @param o código verificado.
-* saida: "argumento invalido" caso o código não atenda um dos critérios estabelecidos.
+* Os 2 primeiros termos tem que ser letras maiuscula;
+* Os outros 2 são digitos de 0 a 9.
+* @param codigo a ser verificado.
+* @throw exception type: "argumento invalido" caso o código não atenda um dos critérios estabelecidos.
 */
 
     if ((int)codigo[0] < (int) 'A' || (int)codigo[0] > (int)'Z') throw invalid_argument("Argumento invalido"); /**< verifica se o primeiro caractere está entre 'A' e 'Z' */
@@ -73,9 +82,11 @@ void CODIGO::verifica(string codigo){
 
 void COLUNA::verifica(string coluna){
 /** 
+* @brief
 * verifica se a coluna atende a um critério específico:
-* @param a coluna verificada.
-* saida: "argumento invalido" caso a coluna não atenda ao critério estabelecido.
+* Se é "SOLICITADO" ou "EM EXECUCAO" ou "CONCLUIDO".
+* @param coluna a ser verificada.
+* @throw exception type: "argumento invalido" caso a coluna não atenda ao critério estabelecido.
 */
     if (coluna == "SOLICITADO" || coluna == "EM EXECUCAO" ||coluna == "CONCLUIDO") return; /**< verifica se a coluna é uma das seguintes opções: "SOLICITADO", "EM EXECUÇÃO" ou "CONCLUIDO". */
     throw invalid_argument("Argumento invalido");
@@ -86,8 +97,11 @@ void COLUNA::verifica(string coluna){
 void EMAIL::verifica(string email){
     /** 
     * verifica se o endereço de email atende a alguns critérios específicos:
-    * @param o endereço de email verificado.
-    * saida: "argumento invalido" caso o endereço de email não atenda um dos critérios estabelecidos.
+    * Se nome tem tamanho entre 2 e 10
+    * Não há pontuacao consecutiva
+    * Nao há pontuacao antes ou depois de "@";
+    * @param email a ser verificado.
+    * @throw exception type: "argumento invalido" caso o endereço de email não atenda um dos critérios estabelecidos.
     */ 
     int separador = 0;
     string nome, dominio; /**< Variáveis para armazenar o nome e o domínio do e-mail. */
@@ -167,7 +181,7 @@ void LIMITE::verifica(int limite){
 /** 
 * verifica se o limite atende a um critério específico:
 * - o limite deve ser um dos seguintes valores: 5, 10, 15, 20.
-* @param o limite verificado
+* @param limite a ser verificado
 * saida: "argumento invalido" caso o limite não atenda ao critério estabelecido.
 */
     if (limite == 5 || limite == 10 || limite == 15 || limite == 20) {}
